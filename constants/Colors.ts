@@ -1,26 +1,19 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
-};
+  'BlueSky' : '#78D9E0',
+  'BlueGreen' : '#114B5F',
+  'DarkBlue' : '#456990',
+  'Red': '#F45B69',
+  'Salmon': '#FFD4CA',
+  'ShadowPrimaryTop' : '#CAFFFF',
+  'ShadowPrimaryBottom' : '#325B5E',
+  'ShadowSecondaryTop' : '#6EA8E6',
+  'ShadowSecondaryBottom' : '#1C2A3A',
+  'ShadowMainTop' : '#16627C',
+  'ShadowMainBottom' : '#0C3442',
+  'ShadowHighTop' : '#FF92A8',
+  'ShadowHighBottom' : '#62242A',
+  'ShadowNormalTop' : '#FFFFFF',
+  'ShadowNormalBottom' : '#645551',
+  'ShadowNoteTop' : '#FFFF',
+  'ShadowNoteBottom' : '#626262'
+}

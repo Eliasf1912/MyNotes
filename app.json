@@ -3,7 +3,6 @@
     "name": "MyNotesV2",
     "slug": "MyNotesV2",
     "version": "1.0.0",
-    "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
