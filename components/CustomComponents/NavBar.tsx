@@ -18,11 +18,11 @@ export default function NavBar({Page} : INavBar) {
   type ScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
   const navigation = useNavigation<ScreenNavigationProp>();
-
+  let NavStyle = Page === 'Home' && width < 400 ? Styles.NavBase : Styles.Nav
   return (
-    <View style={Styles.Nav}>
+    <View style={NavStyle}>
       {
-        Page === 'Note' &&
+        Page === 'Note' || Page === 'Form' &&
         <Neumorphism TypeChildren='ButtonPrimary'>
           <ButtonCustom ButtonContent='Icon' Icon='home' IconSize={35} ButtonStyle='Primary' OnPress={()=>{navigation.navigate('Home')}}/>
         </Neumorphism> 
@@ -77,6 +77,16 @@ const Styles = StyleSheet.create({
     flexDirection : 'row',
     alignItems : 'center',
     justifyContent : 'space-between',
+    paddingHorizontal : 15,
+  },
+  NavBase : {
+    backgroundColor : Colors.BlueSky,
+    height : 70,
+    display : 'flex', 
+    width: '100%',
+    flexDirection : 'row',
+    alignItems : 'center',
+    justifyContent : 'center',
     paddingHorizontal : 15,
   },
   TitleAndLogo : {
