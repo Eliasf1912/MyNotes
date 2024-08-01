@@ -15,5 +15,6 @@ export const Colors = {
   'ShadowNormalTop' : '#FFFFFF',
   'ShadowNormalBottom' : '#645551',
   'ShadowNoteTop' : '#FFFF',
-  'ShadowNoteBottom' : '#626262'
+  'ShadowNoteBottom' : '#626262',
+  'White' : '#FFFF'
 }

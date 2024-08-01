@@ -60,7 +60,7 @@ export default function NavBar({Page} : INavBar) {
       {
         width > 400 && Page === 'Home' ?
         <Neumorphism TypeChildren='ButtonPrimary'>
-          <ButtonCustom TextContent='Create a note' ButtonContent='Text' ButtonStyle='Primary'/>
+          <ButtonCustom TextContent='Create a note' ButtonContent='Text' ButtonStyle='Primary' OnPress={()=>{navigation.navigate('Form')}}/>
         </Neumorphism> 
         : null
       }
