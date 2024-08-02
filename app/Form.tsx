@@ -14,7 +14,6 @@ import { StoredData } from '@/constants/AsyncStorage';
 type ScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 interface IForm {
-  Data : any // passer un object 
 }
 
 export interface IObjectStored {
@@ -24,7 +23,7 @@ export interface IObjectStored {
   TextStored : string 
 }
 
-export default function Form({ Data } : IForm) {
+export default function Form({ } : IForm) {
 
   const navigation = useNavigation<ScreenNavigationProp>();
   const [Title,setTitle] = useState('')

@@ -41,12 +41,12 @@ export default function Home({}) {
   console.log('Props',NoteStored, NoteStored.length)
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider style={{overflow : 'scroll'}}>
       <SafeAreaView style={Styles.container} edges={['top', 'bottom', 'left', 'right']}>
         <NavBar Page="Home"/>
         {
           NoteStored.length > 0 ? 
-          <View style={Styles.Notes}>
+          <View style={{alignItems : 'center'}}>
             <Notes DataStored={NoteStored} />
           </View>  : 
           <View style={width > 400 ? Landscape : Default}>
@@ -71,7 +71,6 @@ export default function Home({}) {
 const Styles = StyleSheet.create({
   container : {
     flex : 1,
-    alignItems : 'center',
     gap: 20,
     backgroundColor : Colors.DarkBlue,
   },

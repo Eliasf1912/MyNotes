@@ -3,6 +3,7 @@ import { GetDataStored } from '@/constants/AsyncStorage'
 import { Colors } from '@/constants/Colors'
 import React, { useEffect, useState } from 'react'
 import { View, TouchableOpacity, FlatList, Text, ListRenderItemInfo, StyleSheet } from 'react-native'
+import Neumorphism from './Neumorphism'
 
 interface INotes {
   DataStored : string[]
@@ -57,16 +58,22 @@ export default function Notes({DataStored} : INotes) {
   return (  
     <View style={styles.Notes}>
       {
-        <FlatList data={NotesToDisplay} renderItem={({item} : ListRenderItemInfo<IObjectStored>) => (
-          <TouchableOpacity>
-            <View>
-              <Text>{item.TitleStored}</Text>
-              <Text>{item.DateStored}</Text>
-            </View>
-            
-            <View></View>
-          </TouchableOpacity>
-        )}/>
+        <Neumorphism TypeChildren='Main'>
+          <FlatList contentContainerStyle={styles.FlatList} data={NotesToDisplay} renderItem={({item} : ListRenderItemInfo<IObjectStored>) => (
+            <TouchableOpacity style={styles.Note}>
+              <View style={styles.TopContainer}>
+                <Neumorphism TypeChildren='ButtonPrimary'>
+                  <Text style={styles.Title}>{item.TitleStored}</Text>
+                </Neumorphism>
+                <Neumorphism TypeChildren='ButtonPrimary'>
+                  <Text style={styles.DateStyle}>{item.DateStored}</Text>
+                </Neumorphism>
+              </View>
+              <Text style={styles.Text}>{item.TextStored}</Text>
+              <View style={[styles.Criticity,{backgroundColor : Colors.Red}]}></View>
+            </TouchableOpacity>
+          )}/>
+        </Neumorphism>
       }
     </View>
   )
@@ -75,7 +82,56 @@ export default function Notes({DataStored} : INotes) {
 
 const styles = StyleSheet.create({
   Notes : {
-    width : '80%',
+    width : '90%',
     padding : 10,
+    height : 550,
   },
+  Note : {
+    backgroundColor : Colors.BlueGreen,
+    borderRadius : 10,
+    padding : 20, 
+  },
+  Title : {
+    backgroundColor : Colors.BlueSky,
+    padding : 10,
+    borderRadius : 10,
+    fontWeight : 'bold',
+    color : Colors.White,
+    fontSize : 17,
+    overflow :'hidden',
+    minWidth : 100
+  },
+  DateStyle : {
+    backgroundColor : Colors.BlueSky,
+    padding : 10, 
+    color : Colors.White, 
+    fontSize : 17,
+    fontWeight : 'bold',
+    borderRadius : 10,    
+    overflow :'hidden',
+    minWidth : 100
+  },
+  TopContainer : {
+    display : 'flex',
+    flexDirection : 'row',
+    justifyContent : 'space-between',
+    marginBottom : 20
+  },
+  FlatList : {
+    display : 'flex',
+    flexDirection : 'column',
+    gap : 20
+  },
+  Text : {
+    color : Colors.White,
+    fontSize : 17,
+    fontWeight : 'bold',
+    marginBottom : 10
+  },
+  Criticity : {
+    width : 30,
+    height : 30,
+    borderRadius : 50,
+    alignSelf : 'flex-end'
+  }
 })
