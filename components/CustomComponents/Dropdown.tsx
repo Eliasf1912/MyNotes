@@ -81,7 +81,7 @@ export default function Dropdown({Criticity, Callback} : IDropdown) {
           <View style={{
             backgroundColor : CriticityColor,
             borderRadius : 10,
-            width : 70,
+            width : 60,
             height : 20
           }}
           ></View>
@@ -119,7 +119,8 @@ const styles = StyleSheet.create({
     display : 'flex',
     flexDirection : 'row',
     alignItems : 'center',
-    justifyContent : 'space-between'
+    justifyContent : 'space-between',
+    gap : 10
   },
   BorderClose : {
     borderRadius : 10,
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     padding : 10,
     backgroundColor : Colors.BlueGreen,
     borderBottomLeftRadius : 10,
-    borderBottomRightRadius : 10
+    borderBottomRightRadius : 10,
   },
   Button : {
     display : 'flex',

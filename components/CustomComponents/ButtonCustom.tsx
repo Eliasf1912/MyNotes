@@ -10,7 +10,8 @@ interface IButtonCustom {
   TextContent ?: string,
   Icon ?: keyof typeof FontAwesome.glyphMap, 
   IconSize ?: number,
-  OnPress ?: (event: GestureResponderEvent) => void
+  OnPress ?: (event: GestureResponderEvent) => void,
+  Center ?: true | false
 }
 
 const Styles = StyleSheet.create({
@@ -19,6 +20,9 @@ const Styles = StyleSheet.create({
     paddingVertical : 10, 
     borderRadius : 10,
     width : 'auto'
+  },
+  center : {
+    alignSelf : 'center'
   },
   TextBase : {
     fontFamily : 'MontSerrat',
@@ -55,8 +59,10 @@ export default function ButtonCustom({ButtonContent,IconSize,ButtonStyle,Icon,Te
     break;
   }
 
+  let CenterButton = StyleSheet.compose(Styles.ButtonBase,Styles.center)
+
   return (
-    <Pressable style={ButtonCSS} onPress={OnPress}>
+    <Pressable style={[CenterButton,ButtonCSS]} onPress={OnPress}>
       { ButtonContent === 'Text' ? <Text style={TextStyle}>{TextContent}</Text> : <FontAwesome name={Icon} size={IconSize} color={'#FFFF'} />}
     </Pressable>
   )
