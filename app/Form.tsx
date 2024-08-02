@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, StyleSheet , TextInput, View, useWindowDimensions , TouchableWithoutFeedback, Keyboard} from "react-native";
+import { Text, StyleSheet , TextInput, View, useWindowDimensions , TouchableWithoutFeedback, Keyboard } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/app/index";
@@ -9,11 +9,19 @@ import NavBar from "@/components/CustomComponents/NavBar";
 import Neumorphism from "@/components/CustomComponents/Neumorphism";
 import ButtonCustom from "@/components/CustomComponents/ButtonCustom";
 import Dropdown, { IDropdown } from '@/components/CustomComponents/Dropdown';
+import { StoredData } from '@/constants/AsyncStorage';
 
 type ScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 interface IForm {
   Data : any // passer un object 
+}
+
+export interface IObjectStored {
+  TitleStored : string,
+  DateStored : string, 
+  CriticityStored : IDropdown['Criticity'],
+  TextStored : string 
 }
 
 export default function Form({ Data } : IForm) {
@@ -30,12 +38,16 @@ export default function Form({ Data } : IForm) {
 
   const submit = () =>{
     if(Title !== '' && TextContent !== ''){
-      // stocker la note.
+      let NoteStored : IObjectStored = {
+        TitleStored : Title,
+        CriticityStored : Criticity,
+        DateStored : date,
+        TextStored : TextContent
+      }
+      StoredData(Title,NoteStored)
       navigation.navigate('Home')
     }
   }
-
-  console.log(Criticity)
   const date = new Date().toLocaleDateString('us')
 
   return (
@@ -71,7 +83,6 @@ export default function Form({ Data } : IForm) {
                   value={TextContent}
                   multiline = {true}
                   enablesReturnKeyAutomatically = {true}
-                
                 />
               </View>
             </Neumorphism>

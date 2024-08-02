@@ -5,6 +5,7 @@ import { Colors } from '@/constants/Colors';
 import { SafeAreaView , SafeAreaProvider } from 'react-native-safe-area-context';
 
 
+
 export default function Note() {
 
   return (
